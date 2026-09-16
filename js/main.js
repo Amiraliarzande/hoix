@@ -51,3 +51,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const row = document.querySelector(`.hours-row[data-day="${today}"]`);
     if (row) row.classList.add('today');
 });
+
+// ===== MOBILE NAV TOGGLE =====
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (!navToggle || !navLinks) return;
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('open');
+            navLinks.classList.remove('open');
+        });
+    });
+});
+
+// ===== AUTO SWIPER FOR LARGE CATEGORIES =====
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.product-grid').forEach(grid => {
+        if (grid.children.length > 4) {
+            grid.classList.add('swiper-mode');
+        }
+    });
+});

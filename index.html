@@ -8,21 +8,12 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-left">
             <a href="index.html" class="logo-container">
                 <div class="logo-circle">
                     <div class="logo-icon">
-                        <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 35 L20 15 L25 22 L30 12 L40 35 Z" fill="#fff" opacity="0.9" />
-                            <path d="M12 38 L15 32 L20 30 L30 30 L35 32 L38 38 Z" fill="#fff" />
-                            <circle cx="18" cy="38" r="3" fill="#fff" />
-                            <circle cx="32" cy="38" r="3" fill="#fff" />
-                            <path d="M22 20 Q23 17 24 20 Q23 23 22 20Z" fill="#4a90d9" />
-                            <path d="M28 18 Q29 15 30 18 Q29 21 28 18Z" fill="#4a90d9" />
-                            <path d="M33 22 Q34 19 35 22 Q34 25 33 22Z" fill="#4a90d9" />
-                        </svg>
+                        <img src="images/logo.jpg"/>
                     </div>
                 </div>
                 <div class="logo-text">
@@ -30,7 +21,12 @@
                     <span class="sub">Car Wash</span>
                 </div>
             </a>
-            <ul class="nav-links">
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#memberships">Memberships</a></li>
                 <li><a href="#locations">Locations</a></li>
@@ -38,9 +34,10 @@
             </ul>
         </div>
         <a href="#services" class="btn-book-nav">Book Now</a>
+
+        
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-left">
             <h1 class="hero-title">
@@ -56,66 +53,81 @@
 
         <div class="hero-right">
             <div class="car-panels-container">
-                <img src="images/banner.jfif" alt="Car Wash Process - Dirty, Foam, Clean"
+                <img src="images/banner.jpg" alt="Car Wash Process - Dirty, Foam, Clean"
                      onerror="this.onerror=null;this.src='https://placehold.co/900x1100/1a3a2a/f6f3e2?text=Dirty+%E2%86%92+Foam+%E2%86%92+Clean';">
             </div>
         </div>
     </section>
 
-    <!-- CATEGORY JUMP LINKS -->
     <nav class="category-jump">
-        <a href="#sedan">Sedan</a>
-        <a href="#suv">SUV</a>
-        <a href="#truck">Truck</a>
+        <a href="#wash-dry">Wash & Dry</a>
+        <a href="#mini-valet">Mini Valet</a>
+        <a href="#maxi-valet">Maxi Valet</a>
+        <a href="#gold-valet">Gold Valet</a>
+        <a href="#senior-citizens">Senior Citizens</a>
+        <a href="#vans">Vans</a>
     </nav>
 
-    <!-- CATEGORIES -->
     <div id="services">
 
-        <section class="category-section" id="sedan">
+        <section class="category-section" id="wash-dry">
             <div class="category-header">
-                <h2>Sedan</h2>
-                <span class="category-count">3 packages</span>
+                <h2>Wash & Dry</h2>
+                <span class="category-count">4 sizes</span>
             </div>
             <div class="product-grid">
                 <a class="product-card" href="product.html">
                     <div class="thumb">
-                        <img src="images/products/sedan-exterior.jpg" alt="Exterior Wash"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Exterior+Wash';">
+                        <img src="images/products/wash-dry-small.jpg" alt="Wash & Dry - Small"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+Small';">
                     </div>
                     <div class="body">
-                        <div class="name">Exterior Wash</div>
-                        <div class="desc">Hand wash and rinse of the body, wheels, and tires, finished with a spot-free dry.</div>
+                        <div class="name">Small</div>
+                        <div class="desc">Wheel clean, tyres shining, wax dry, outside windows, hand finish.</div>
                         <div class="price-row">
-                            <span class="price">$18.99</span>
+                            <span class="price">£8</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
                 <a class="product-card" href="product.html">
                     <div class="thumb">
-                        <img src="images/products/sedan-interior.jpg" alt="Interior Detail"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Interior+Detail';">
+                        <img src="images/products/wash-dry-medium.jpg" alt="Wash & Dry - Medium"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+Medium';">
                     </div>
                     <div class="body">
-                        <div class="name">Interior Detail</div>
-                        <div class="desc">Full vacuum, dashboard wipe-down, window cleaning, and door jamb detailing.</div>
+                        <div class="name">Medium</div>
+                        <div class="desc">Wheel clean, tyres shining, wax dry, outside windows, hand finish.</div>
                         <div class="price-row">
-                            <span class="price">$26.99</span>
+                            <span class="price">£9</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
                 <a class="product-card" href="product.html">
                     <div class="thumb">
-                        <img src="images/products/sedan-full.jpg" alt="Full Package"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Full+Package';">
+                        <img src="images/products/wash-dry-large.jpg" alt="Wash & Dry - Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+Large';">
                     </div>
                     <div class="body">
-                        <div class="name">Full Package</div>
-                        <div class="desc">Everything in Exterior + Interior, plus tire shine and air freshener.</div>
+                        <div class="name">Large</div>
+                        <div class="desc">Wheel clean, tyres shining, wax dry, outside windows, hand finish.</div>
                         <div class="price-row">
-                            <span class="price">$41.99</span>
+                            <span class="price">From £12</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/wash-dry-xlarge.jpg" alt="Wash & Dry - X-Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+X-Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">X-Large</div>
+                        <div class="desc">Wheel clean, tyres shining, wax dry, outside windows, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">From £15</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
@@ -123,50 +135,64 @@
             </div>
         </section>
 
-        <section class="category-section" id="suv">
+        <section class="category-section" id="mini-valet">
             <div class="category-header">
-                <h2>SUV</h2>
-                <span class="category-count">3 packages</span>
+                <h2>Mini Valet</h2>
+                <span class="category-count">4 sizes</span>
             </div>
             <div class="product-grid">
                 <a class="product-card" href="product.html">
                     <div class="thumb">
-                        <img src="images/products/suv-exterior.jpg" alt="Exterior Wash"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Exterior+Wash';">
+                        <img src="images/products/mini-valet-small.jpg" alt="Mini Valet - Small"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+Small';">
                     </div>
                     <div class="body">
-                        <div class="name">Exterior Wash</div>
-                        <div class="desc">Hand wash and rinse of the body, wheels, and tires, finished with a spot-free dry.</div>
+                        <div class="name">Small</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in & out, dashboard clean, air fresh, hand finish.</div>
                         <div class="price-row">
-                            <span class="price">$21.99</span>
+                            <span class="price">£20</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
                 <a class="product-card" href="product.html">
                     <div class="thumb">
-                        <img src="images/products/suv-interior.jpg" alt="Interior Detail"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Interior+Detail';">
+                        <img src="images/products/mini-valet-medium.jpg" alt="Mini Valet - Medium"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+Medium';">
                     </div>
                     <div class="body">
-                        <div class="name">Interior Detail</div>
-                        <div class="desc">Full vacuum, dashboard wipe-down, window cleaning, and door jamb detailing.</div>
+                        <div class="name">Medium</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in & out, dashboard clean, air fresh, hand finish.</div>
                         <div class="price-row">
-                            <span class="price">$29.99</span>
+                            <span class="price">£22</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
                 <a class="product-card" href="product.html">
                     <div class="thumb">
-                        <img src="images/products/suv-full.jpg" alt="Full Package"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Full+Package';">
+                        <img src="images/products/mini-valet-large.jpg" alt="Mini Valet - Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+Large';">
                     </div>
                     <div class="body">
-                        <div class="name">Full Package</div>
-                        <div class="desc">Everything in Exterior + Interior, plus tire shine and air freshener.</div>
+                        <div class="name">Large</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in & out, dashboard clean, air fresh, hand finish.</div>
                         <div class="price-row">
-                            <span class="price">$47.99</span>
+                            <span class="price">£25</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/mini-valet-xlarge.jpg" alt="Mini Valet - X-Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+X-Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">X-Large</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in & out, dashboard clean, air fresh, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£30</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
@@ -174,50 +200,259 @@
             </div>
         </section>
 
-        <section class="category-section" id="truck">
+        <section class="category-section" id="maxi-valet">
             <div class="category-header">
-                <h2>Truck</h2>
-                <span class="category-count">3 packages</span>
+                <h2>Maxi Valet</h2>
+                <span class="category-count">4 sizes</span>
             </div>
             <div class="product-grid">
                 <a class="product-card" href="product.html">
                     <div class="thumb">
-                        <img src="images/products/truck-exterior.jpg" alt="Exterior Wash"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Exterior+Wash';">
+                        <img src="images/products/maxi-valet-small.jpg" alt="Maxi Valet - Small"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+Small';">
                     </div>
                     <div class="body">
-                        <div class="name">Exterior Wash</div>
-                        <div class="desc">Hand wash and rinse of the body, wheels, and tires, finished with a spot-free dry.</div>
+                        <div class="name">Small</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped, windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
                         <div class="price-row">
-                            <span class="price">$24.99</span>
+                            <span class="price">£25</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
                 <a class="product-card" href="product.html">
                     <div class="thumb">
-                        <img src="images/products/truck-interior.jpg" alt="Interior Detail"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Interior+Detail';">
+                        <img src="images/products/maxi-valet-medium.jpg" alt="Maxi Valet - Medium"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+Medium';">
                     </div>
                     <div class="body">
-                        <div class="name">Interior Detail</div>
-                        <div class="desc">Full vacuum, dashboard wipe-down, window cleaning, and door jamb detailing.</div>
+                        <div class="name">Medium</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped, windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
                         <div class="price-row">
-                            <span class="price">$34.99</span>
+                            <span class="price">£30</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
                 <a class="product-card" href="product.html">
                     <div class="thumb">
-                        <img src="images/products/truck-full.jpg" alt="Full Package"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Full+Package';">
+                        <img src="images/products/maxi-valet-large.jpg" alt="Maxi Valet - Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+Large';">
                     </div>
                     <div class="body">
-                        <div class="name">Full Package</div>
-                        <div class="desc">Everything in Exterior + Interior, plus tire shine and air freshener.</div>
+                        <div class="name">Large</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped, windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
                         <div class="price-row">
-                            <span class="price">$54.99</span>
+                            <span class="price">£32</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/maxi-valet-xlarge.jpg" alt="Maxi Valet - X-Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+X-Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">X-Large</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped, windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
+                        <div class="price-row">
+                            <span class="price">£37</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="category-section" id="gold-valet">
+            <div class="category-header">
+                <h2>Gold Valet</h2>
+                <span class="category-count">4 sizes</span>
+            </div>
+            <div class="product-grid">
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/gold-valet-small.jpg" alt="Gold Valet - Small"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+Small';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Small</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£40</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/gold-valet-medium.jpg" alt="Gold Valet - Medium"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+Medium';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Medium</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£45</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/gold-valet-large.jpg" alt="Gold Valet - Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Large</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£50</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/gold-valet-xlarge.jpg" alt="Gold Valet - X-Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+X-Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">X-Large</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£55</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="category-section" id="senior-citizens">
+            <div class="category-header">
+                <h2>Senior Citizens</h2>
+                <span class="category-count">4 sizes</span>
+            </div>
+            <div class="product-grid">
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/senior-small.jpg" alt="Senior Citizens - Small"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+Small';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Small</div>
+                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.</div>
+                        <div class="price-row">
+                            <span class="price">£7</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/senior-medium.jpg" alt="Senior Citizens - Medium"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+Medium';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Medium</div>
+                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.</div>
+                        <div class="price-row">
+                            <span class="price">£8</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/senior-large.jpg" alt="Senior Citizens - Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Large</div>
+                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.</div>
+                        <div class="price-row">
+                            <span class="price">£10</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/senior-xlarge.jpg" alt="Senior Citizens - X-Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+X-Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">X-Large</div>
+                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.</div>
+                        <div class="price-row">
+                            <span class="price">£12</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="category-section" id="vans">
+            <div class="category-header">
+                <h2>Vans</h2>
+                <span class="category-count">4 sizes</span>
+            </div>
+            <div class="product-grid">
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/vans-small.jpg" alt="Vans - Small"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+Small';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Small</div>
+                        <div class="desc">Wheel clean, tyres shining, wax dry, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£9</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/vans-medium.jpg" alt="Vans - Medium"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+Medium';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Medium</div>
+                        <div class="desc">Wheel clean, tyres shining, wax dry, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£12</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/vans-large.jpg" alt="Vans - Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Large</div>
+                        <div class="desc">Wheel clean, tyres shining, wax dry, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£15</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="product-card" href="product.html">
+                    <div class="thumb">
+                        <img src="images/products/vans-xlarge.jpg" alt="Vans - X-Large"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+X-Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">X-Large</div>
+                        <div class="desc">Wheel clean, tyres shining, wax dry, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£20</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
@@ -227,7 +462,6 @@
 
     </div>
 
-    <!-- HOURS -->
     <section class="hours-section" id="locations">
         <div>
             <h2>Working Hours</h2>
@@ -244,13 +478,11 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="site-footer" id="contact">
         <span>&copy; 2026 WoodLands Car Wash. All rights reserved.</span>
         <span>123 Woodlands Ave, Your City</span>
     </footer>
 
-    <!-- CONTACT ICONS -->
     <div class="contact-icons">
         <button class="contact-icon" title="Phone">
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
