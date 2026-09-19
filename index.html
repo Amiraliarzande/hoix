@@ -1,19 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WoodLands Car Wash</title>
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
 
+    <style>
+        /* ===== Product Modal ===== */
+        .product-card {
+            cursor: pointer;
+        }
+
+        body.pm-lock {
+            overflow: hidden;
+        }
+
+        .pm-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 25, 18, 0.72);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            z-index: 9999;
+        }
+
+        .pm-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .pm-dialog {
+            position: relative;
+            background: #f6f3e2;
+            color: #1a3a2a;
+            width: 100%;
+            max-width: 820px;
+            max-height: 90vh;
+            overflow: auto;
+            border-radius: 16px;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+            transform: translateY(20px) scale(0.97);
+            transition: transform 0.25s ease;
+        }
+
+        .pm-overlay.open .pm-dialog {
+            transform: none;
+        }
+
+        .pm-image {
+            background: #e8e3cf;
+            min-height: 300px;
+        }
+
+        .pm-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pm-info {
+            padding: 36px 30px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .pm-cat {
+            margin: 0;
+            font-size: 1.9rem;
+            line-height: 1.15;
+            padding-right: 30px;
+        }
+
+        .pm-size {
+            align-self: flex-start;
+            background: #1a3a2a;
+            color: #f6f3e2;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 999px;
+        }
+
+        .pm-desc {
+            margin: 0;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .pm-price {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid rgba(26, 58, 42, 0.2);
+            font-size: 2.1rem;
+            font-weight: 800;
+        }
+
+        .pm-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background: #1a3a2a;
+            color: #f6f3e2;
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .pm-close:hover {
+            opacity: 0.85;
+        }
+
+        @media (max-width: 640px) {
+            .pm-dialog {
+                grid-template-columns: 1fr;
+            }
+
+            .pm-image {
+                min-height: 0;
+                aspect-ratio: 4 / 3;
+            }
+
+            .pm-info {
+                padding: 24px 22px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
     <nav class="navbar">
         <div class="nav-left">
             <a href="index.html" class="logo-container">
                 <div class="logo-circle">
                     <div class="logo-icon">
-                        <img src="images/logo.jpg"/>
+                        <img src="images/logo.jpg" />
                     </div>
                 </div>
                 <div class="logo-text">
@@ -34,8 +172,6 @@
             </ul>
         </div>
         <a href="#services" class="btn-book-nav">Book Now</a>
-
-        
     </nav>
 
     <section class="hero">
@@ -50,11 +186,10 @@
                 BOOK YOUR WASH <span class="arrow">→</span>
             </a>
         </div>
-
         <div class="hero-right">
             <div class="car-panels-container">
                 <img src="images/banner.jpg" alt="Car Wash Process - Dirty, Foam, Clean"
-                     onerror="this.onerror=null;this.src='https://placehold.co/900x1100/1a3a2a/f6f3e2?text=Dirty+%E2%86%92+Foam+%E2%86%92+Clean';">
+                    onerror="this.onerror=null;this.src='https://placehold.co/900x1100/1a3a2a/f6f3e2?text=Dirty+%E2%86%92+Foam+%E2%86%92+Clean';">
             </div>
         </div>
     </section>
@@ -69,17 +204,16 @@
     </nav>
 
     <div id="services">
-
         <section class="category-section" id="wash-dry">
             <div class="category-header">
                 <h2>Wash & Dry</h2>
                 <span class="category-count">4 sizes</span>
             </div>
             <div class="product-grid">
-                <a class="product-card" href="product.html">
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/wash-dry-small.jpg" alt="Wash & Dry - Small"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+Small';">
+                        <img src="images/main/small.jpg" alt="Wash & Dry - Small"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+Small';">
                     </div>
                     <div class="body">
                         <div class="name">Small</div>
@@ -90,10 +224,11 @@
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/wash-dry-medium.jpg" alt="Wash & Dry - Medium"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+Medium';">
+                        <img src="images/main/medium.jpg" alt="Wash & Dry - Medium"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+Medium';">
                     </div>
                     <div class="body">
                         <div class="name">Medium</div>
@@ -104,10 +239,11 @@
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/wash-dry-large.jpg" alt="Wash & Dry - Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+Large';">
+                        <img src="images/main/large.jpg" alt="Wash & Dry - Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+Large';">
                     </div>
                     <div class="body">
                         <div class="name">Large</div>
@@ -118,10 +254,11 @@
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/wash-dry-xlarge.jpg" alt="Wash & Dry - X-Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+X-Large';">
+                        <img src="images/main/Xlarge.jpg" alt="Wash & Dry - X-Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Wash+%26+Dry+-+X-Large';">
                     </div>
                     <div class="body">
                         <div class="name">X-Large</div>
@@ -141,56 +278,63 @@
                 <span class="category-count">4 sizes</span>
             </div>
             <div class="product-grid">
-                <a class="product-card" href="product.html">
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/mini-valet-small.jpg" alt="Mini Valet - Small"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+Small';">
+                        <img src="images/main/small.jpg" alt="Mini Valet - Small"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+Small';">
                     </div>
                     <div class="body">
                         <div class="name">Small</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in & out, dashboard clean, air fresh, hand finish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in
+                            & out, dashboard clean, air fresh, hand finish.</div>
                         <div class="price-row">
                             <span class="price">£20</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/mini-valet-medium.jpg" alt="Mini Valet - Medium"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+Medium';">
+                        <img src="images/main/medium.jpg" alt="Mini Valet - Medium"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+Medium';">
                     </div>
                     <div class="body">
                         <div class="name">Medium</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in & out, dashboard clean, air fresh, hand finish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in
+                            & out, dashboard clean, air fresh, hand finish.</div>
                         <div class="price-row">
                             <span class="price">£22</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/mini-valet-large.jpg" alt="Mini Valet - Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+Large';">
+                        <img src="images/main/large.jpg" alt="Mini Valet - Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+Large';">
                     </div>
                     <div class="body">
                         <div class="name">Large</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in & out, dashboard clean, air fresh, hand finish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in
+                            & out, dashboard clean, air fresh, hand finish.</div>
                         <div class="price-row">
                             <span class="price">£25</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/mini-valet-xlarge.jpg" alt="Mini Valet - X-Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+X-Large';">
+                        <img src="images/main/Xlarge.jpg" alt="Mini Valet - X-Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Mini+Valet+-+X-Large';">
                     </div>
                     <div class="body">
                         <div class="name">X-Large</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in & out, dashboard clean, air fresh, hand finish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts wiped, windows in
+                            & out, dashboard clean, air fresh, hand finish.</div>
                         <div class="price-row">
                             <span class="price">£30</span>
                             <span class="view-link">View details →</span>
@@ -206,56 +350,63 @@
                 <span class="category-count">4 sizes</span>
             </div>
             <div class="product-grid">
-                <a class="product-card" href="product.html">
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/maxi-valet-small.jpg" alt="Maxi Valet - Small"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+Small';">
+                        <img src="images/main/small.jpg" alt="Maxi Valet - Small"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+Small';">
                     </div>
                     <div class="body">
                         <div class="name">Small</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped, windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped,
+                            windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
                         <div class="price-row">
                             <span class="price">£25</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/maxi-valet-medium.jpg" alt="Maxi Valet - Medium"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+Medium';">
+                        <img src="images/main/medium.jpg" alt="Maxi Valet - Medium"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+Medium';">
                     </div>
                     <div class="body">
                         <div class="name">Medium</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped, windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped,
+                            windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
                         <div class="price-row">
                             <span class="price">£30</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/maxi-valet-large.jpg" alt="Maxi Valet - Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+Large';">
+                        <img src="images/main/large.jpg" alt="Maxi Valet - Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+Large';">
                     </div>
                     <div class="body">
                         <div class="name">Large</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped, windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped,
+                            windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
                         <div class="price-row">
                             <span class="price">£32</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/maxi-valet-xlarge.jpg" alt="Maxi Valet - X-Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+X-Large';">
+                        <img src="images/main/Xlarge.jpg" alt="Maxi Valet - X-Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Maxi+Valet+-+X-Large';">
                     </div>
                     <div class="body">
                         <div class="name">X-Large</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped, windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, door shuts & seat wiped,
+                            windows in & out, dashboard clean, air fresh & hand finish, tango polish.</div>
                         <div class="price-row">
                             <span class="price">£37</span>
                             <span class="view-link">View details →</span>
@@ -271,56 +422,63 @@
                 <span class="category-count">4 sizes</span>
             </div>
             <div class="product-grid">
-                <a class="product-card" href="product.html">
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/gold-valet-small.jpg" alt="Gold Valet - Small"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+Small';">
+                        <img src="images/main/small.jpg" alt="Gold Valet - Small"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+Small';">
                     </div>
                     <div class="body">
                         <div class="name">Small</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts
+                            wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
                         <div class="price-row">
                             <span class="price">£40</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/gold-valet-medium.jpg" alt="Gold Valet - Medium"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+Medium';">
+                        <img src="images/main/medium.jpg" alt="Gold Valet - Medium"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+Medium';">
                     </div>
                     <div class="body">
                         <div class="name">Medium</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts
+                            wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
                         <div class="price-row">
                             <span class="price">£45</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/gold-valet-large.jpg" alt="Gold Valet - Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+Large';">
+                        <img src="images/main/large.jpg" alt="Gold Valet - Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+Large';">
                     </div>
                     <div class="body">
                         <div class="name">Large</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts
+                            wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
                         <div class="price-row">
                             <span class="price">£50</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/gold-valet-xlarge.jpg" alt="Gold Valet - X-Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+X-Large';">
+                        <img src="images/main/Xlarge.jpg" alt="Gold Valet - X-Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Gold+Valet+-+X-Large';">
                     </div>
                     <div class="body">
                         <div class="name">X-Large</div>
-                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
+                        <div class="desc">Hand wash, wheel clean, wax dry, interior vacuum, tyre shinning, door shuts
+                            wiped, dash shinning, exterior clean, hand polish, hand finish.</div>
                         <div class="price-row">
                             <span class="price">£55</span>
                             <span class="view-link">View details →</span>
@@ -336,56 +494,63 @@
                 <span class="category-count">4 sizes</span>
             </div>
             <div class="product-grid">
-                <a class="product-card" href="product.html">
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/senior-small.jpg" alt="Senior Citizens - Small"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+Small';">
+                        <img src="images/main/small.jpg" alt="Senior Citizens - Small"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+Small';">
                     </div>
                     <div class="body">
                         <div class="name">Small</div>
-                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.</div>
+                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.
+                        </div>
                         <div class="price-row">
                             <span class="price">£7</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/senior-medium.jpg" alt="Senior Citizens - Medium"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+Medium';">
+                        <img src="images/main/medium.jpg" alt="Senior Citizens - Medium"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+Medium';">
                     </div>
                     <div class="body">
                         <div class="name">Medium</div>
-                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.</div>
+                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.
+                        </div>
                         <div class="price-row">
                             <span class="price">£8</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/senior-large.jpg" alt="Senior Citizens - Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+Large';">
+                        <img src="images/main/large.jpg" alt="Senior Citizens - Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+Large';">
                     </div>
                     <div class="body">
                         <div class="name">Large</div>
-                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.</div>
+                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.
+                        </div>
                         <div class="price-row">
                             <span class="price">£10</span>
                             <span class="view-link">View details →</span>
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/senior-xlarge.jpg" alt="Senior Citizens - X-Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+X-Large';">
+                        <img src="images/main/Xlarge.jpg" alt="Senior Citizens - X-Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Senior+Citizens+-+X-Large';">
                     </div>
                     <div class="body">
                         <div class="name">X-Large</div>
-                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.</div>
+                        <div class="desc">Wash, wax & dry for customers over 65 years old. Available Monday to Thursday.
+                        </div>
                         <div class="price-row">
                             <span class="price">£12</span>
                             <span class="view-link">View details →</span>
@@ -401,10 +566,10 @@
                 <span class="category-count">4 sizes</span>
             </div>
             <div class="product-grid">
-                <a class="product-card" href="product.html">
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/vans-small.jpg" alt="Vans - Small"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+Small';">
+                        <img src="images/main/small_van.jpg" alt="Vans - Small"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+Small';">
                     </div>
                     <div class="body">
                         <div class="name">Small</div>
@@ -415,10 +580,11 @@
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/vans-medium.jpg" alt="Vans - Medium"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+Medium';">
+                        <img src="images/main/medium_van.jpg" alt="Vans - Medium"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+Medium';">
                     </div>
                     <div class="body">
                         <div class="name">Medium</div>
@@ -429,10 +595,25 @@
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
+                <a class="product-card" href="#">
                     <div class="thumb">
-                        <img src="images/products/vans-large.jpg" alt="Vans - Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+Large';">
+                        <img src="images/main/pickup.jpg" alt="Vans - X-Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+X-Large';">
+                    </div>
+                    <div class="body">
+                        <div class="name">Pickup</div>
+                        <div class="desc">Wheel clean, tyres shining, wax dry, hand finish.</div>
+                        <div class="price-row">
+                            <span class="price">£20</span>
+                            <span class="view-link">View details →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="product-card" href="#">
+                    <div class="thumb">
+                        <img src="images/main/large_van.jpg" alt="Vans - Large"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+Large';">
                     </div>
                     <div class="body">
                         <div class="name">Large</div>
@@ -443,29 +624,17 @@
                         </div>
                     </div>
                 </a>
-                <a class="product-card" href="product.html">
-                    <div class="thumb">
-                        <img src="images/products/vans-xlarge.jpg" alt="Vans - X-Large"
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/e8e3cf/1a3a2a?text=Vans+-+X-Large';">
-                    </div>
-                    <div class="body">
-                        <div class="name">X-Large</div>
-                        <div class="desc">Wheel clean, tyres shining, wax dry, hand finish.</div>
-                        <div class="price-row">
-                            <span class="price">£20</span>
-                            <span class="view-link">View details →</span>
-                        </div>
-                    </div>
-                </a>
+
+                
             </div>
         </section>
-
     </div>
 
     <section class="hours-section" id="locations">
         <div>
             <h2>Working Hours</h2>
-            <p class="lead">Stop by any day of the week. We're open a little later Monday through Saturday, and close an hour earlier on Sundays.</p>
+            <p class="lead">Stop by any day of the week. We're open a little later Monday through Saturday, and close an
+                hour earlier on Sundays.</p>
         </div>
         <div class="hours-table">
             <div class="hours-row" data-day="mon"><span>Monday</span><span>9:00 AM – 6:00 PM</span></div>
@@ -485,16 +654,98 @@
 
     <div class="contact-icons">
         <button class="contact-icon" title="Phone">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
         </button>
+
         <button class="contact-icon" title="WhatsApp">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
         </button>
+
         <button class="contact-icon" title="Email">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            </svg>
         </button>
     </div>
 
+    <!-- Product Modal -->
+    <div class="pm-overlay" id="productModal" aria-hidden="true">
+        <div class="pm-dialog" role="dialog" aria-modal="true" aria-labelledby="pmCategory">
+            <button class="pm-close" id="pmClose" type="button" aria-label="Close">&times;</button>
+            <div class="pm-image">
+                <img id="pmImage" src="" alt="">
+            </div>
+            <div class="pm-info">
+                <h3 class="pm-cat" id="pmCategory"></h3>
+                <span class="pm-size" id="pmSize"></span>
+                <p class="pm-desc" id="pmDesc"></p>
+                <div class="pm-price" id="pmPrice"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
+    <script>
+        (function () {
+            var modal = document.getElementById('productModal');
+            var mImage = document.getElementById('pmImage');
+            var mCategory = document.getElementById('pmCategory');
+            var mSize = document.getElementById('pmSize');
+            var mDesc = document.getElementById('pmDesc');
+            var mPrice = document.getElementById('pmPrice');
+            var mClose = document.getElementById('pmClose');
+            var lastFocused = null;
+
+            function openModal(card) {
+                var section = card.closest('.category-section');
+                var img = card.querySelector('.thumb img');
+
+                mCategory.textContent = section.querySelector('.category-header h2').textContent.trim();
+                mSize.textContent = card.querySelector('.name').textContent.trim();
+                mDesc.textContent = card.querySelector('.desc').textContent.replace(/\s+/g, ' ').trim();
+                mPrice.textContent = card.querySelector('.price').textContent.trim();
+                mImage.src = img.currentSrc || img.src;
+                mImage.alt = img.alt;
+
+                lastFocused = card;
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('pm-lock');
+                mClose.focus();
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('pm-lock');
+                if (lastFocused) lastFocused.focus();
+            }
+
+            document.querySelectorAll('.product-card').forEach(function (card) {
+                card.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openModal(card);
+                });
+            });
+
+            mClose.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+            });
+        })();
+    </script>
 </body>
+
 </html>
