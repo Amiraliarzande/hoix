@@ -429,7 +429,7 @@
 
     <nav class="category-jump">
         {% for category in categories %}
-            <a href="#{{ category.slug }}">{{ category.name }}</a>
+        <a href="#{{ category.slug }}">{{ category.name }}</a>
         {% endfor %}
     </nav>
 
@@ -447,31 +447,28 @@
             <div class="product-grid">
 
                 {% for service in category.services.all %}
-                    <a class="product-card" href="#">
-                        <div class="thumb">
-                            {% if service.image %}
-                                <img
-                                    src="{{ service.image.url }}"
-                                    alt="{{ category.name }} - {{ service.name }}"
-                                >
-                            {% endif %}
+                <a class="product-card" href="#">
+                    <div class="thumb">
+                        {% if service.image %}
+                        <img src="{{ service.image.url }}" alt="{{ category.name }} - {{ service.name }}">
+                        {% endif %}
+                    </div>
+
+                    <div class="body">
+                        <div class="name">{{ service.name }}</div>
+                        <div class="desc">{{ service.description }}</div>
+
+                        <div class="price-row">
+                            <span class="price">
+                                £{{ service.price|floatformat:"-2" }}
+                            </span>
+
+                            <span class="view-link">
+                                View details →
+                            </span>
                         </div>
-
-                        <div class="body">
-                            <div class="name">{{ service.name }}</div>
-                            <div class="desc">{{ service.description }}</div>
-
-                            <div class="price-row">
-                                <span class="price">
-                                    £{{ service.price|floatformat:"-2" }}
-                                </span>
-
-                                <span class="view-link">
-                                    View details →
-                                </span>
-                            </div>
-                        </div>
-                    </a>
+                    </div>
+                </a>
                 {% endfor %}
 
             </div>
@@ -506,7 +503,7 @@
                     <li>Works out around £7.50 per wash</li>
                     <li>No unlimited usage</li>
                 </ul>
-                <a href="#contact" class="membership-btn">Join Wash Club</a>
+                <a href="#contact" class="membership-btn" target="_blank" rel="noopener noreferrer">Join Wash Club</a>
             </article>
 
             <!-- WASH CLUB PLUS (Most Popular) -->
@@ -526,7 +523,7 @@
                     <li>One vehicle per membership</li>
                     <li>Priority member queue (where available)</li>
                 </ul>
-                <a href="#contact" class="membership-btn">Join Plus</a>
+                <a href="#contact" class="membership-btn" target="_blank" rel="noopener noreferrer">Join Plus</a>
             </article>
 
             <!-- VALET CLUB -->
@@ -544,7 +541,7 @@
                     <li>Dashboard &amp; door shuts</li>
                     <li>Air fresh &amp; hand finish</li>
                 </ul>
-                <a href="#contact" class="membership-btn">Join Valet Club</a>
+                <a href="#contact" class="membership-btn" target="_blank" rel="noopener noreferrer">Join Valet Club</a>
             </article>
 
             <!-- GOLD CLUB -->
@@ -560,7 +557,7 @@
                     <li>For owners who really care about their car</li>
                     <li>One vehicle per membership</li>
                 </ul>
-                <a href="#contact" class="membership-btn">Join Gold Club</a>
+                <a href="#contact" class="membership-btn" target="_blank" rel="noopener noreferrer">Join Gold Club</a>
             </article>
 
         </div>
@@ -579,22 +576,19 @@
                 hour earlier on Sundays.</p>
         </div>
         <div class="hours-table">
-        {% for working_hour in working_hours %}
-            <div
-                class="hours-row"
-                data-day="{{ working_hour.get_day_display|lower }}"
-            >
+            {% for working_hour in working_hours %}
+            <div class="hours-row" data-day="{{ working_hour.get_day_display|lower }}">
                 <span>
                     {{ working_hour.get_day_display }}
                 </span>
 
                 <span>
                     {{ working_hour.opening_time|time:"g:i A" }}
-                    – 
+                    –
                     {{ working_hour.closing_time|time:"g:i A" }}
                 </span>
             </div>
-        {% endfor %}
+            {% endfor %}
         </div>
     </section>
 
