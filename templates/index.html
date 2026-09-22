@@ -164,6 +164,217 @@
                 padding: 24px 22px 24px;
             }
         }
+
+        /* ===== MEMBERSHIP / WASH CLUB ===== */
+        .membership-section {
+            padding: 80px 50px 70px;
+            background: var(--cream, #f6f3e2);
+            border-top: 1px solid var(--line, rgba(26, 26, 26, 0.12));
+            scroll-margin-top: 90px;
+        }
+
+        .membership-header {
+            max-width: 720px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .membership-eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            color: var(--brass-dark, #b8944f);
+            margin-bottom: 14px;
+        }
+
+        .membership-header h2 {
+            font-size: 38px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            color: var(--ink, #1a1a1a);
+            margin-bottom: 14px;
+        }
+
+        .membership-sub {
+            font-size: 15px;
+            color: var(--muted, #5b5b52);
+            line-height: 1.6;
+        }
+
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .membership-card {
+            position: relative;
+            background: var(--card-bg, #fffdf6);
+            border: 1px solid var(--line, rgba(26, 26, 26, 0.12));
+            border-radius: 18px;
+            padding: 28px 24px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+
+        .membership-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(26, 58, 42, 0.14);
+        }
+
+        .membership-card.popular {
+            border: 2px solid var(--brass, #c9a96e);
+            box-shadow: 0 14px 34px rgba(201, 169, 110, 0.25);
+        }
+
+        .membership-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--brass, #c9a96e);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            padding: 6px 14px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .membership-top {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .membership-top h3 {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: -0.4px;
+            color: var(--ink, #1a1a1a);
+        }
+
+        .membership-price {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--deep-green, #1a3a2a);
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .membership-price span {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--muted, #5b5b52);
+            letter-spacing: 0;
+            margin-left: 4px;
+        }
+
+        .membership-tagline {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--brass-dark, #b8944f);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--line, rgba(26, 26, 26, 0.12));
+        }
+
+        .membership-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            margin: 4px 0 8px;
+            padding: 0;
+        }
+
+        .membership-features li {
+            position: relative;
+            padding-left: 22px;
+            font-size: 13.5px;
+            color: var(--muted, #5b5b52);
+            line-height: 1.5;
+        }
+
+        .membership-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--mid-green, #1e4d35);
+            font-weight: 900;
+            font-size: 13px;
+        }
+
+        .membership-btn {
+            display: inline-block;
+            text-align: center;
+            background: var(--charcoal, #2d2d2d);
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 12px 18px;
+            border-radius: 10px;
+            transition: background 0.25s, transform 0.25s;
+            margin-top: auto;
+        }
+
+        .membership-btn:hover {
+            background: var(--deep-green, #1a3a2a);
+            transform: translateY(-1px);
+        }
+
+        .membership-card.popular .membership-btn {
+            background: var(--brass, #c9a96e);
+        }
+
+        .membership-card.popular .membership-btn:hover {
+            background: var(--brass-dark, #b8944f);
+        }
+
+        .membership-note {
+            max-width: 720px;
+            margin: 34px auto 0;
+            text-align: center;
+            font-size: 12.5px;
+            color: var(--muted, #5b5b52);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1100px) {
+            .membership-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .membership-section {
+                padding: 60px 22px 50px;
+            }
+
+            .membership-header h2 {
+                font-size: 28px;
+            }
+
+            .membership-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .membership-badge {
+                top: -11px;
+            }
+        }
     </style>
 </head>
 
@@ -268,6 +479,98 @@
         </section>
         {% endfor %}
     </div>
+
+    <!-- ===== MEMBERSHIPS / WASH CLUB ===== -->
+    <section class="membership-section" id="memberships">
+
+        <div class="membership-header">
+            <span class="membership-eyebrow">JOIN THE WOODLANDS WASH CLUB</span>
+            <h2>Keep your car clean all month.<br>One simple monthly payment.</h2>
+            <p class="membership-sub">
+                Pick the plan that fits how often you wash. Cancel anytime. One vehicle per membership.
+            </p>
+        </div>
+
+        <div class="membership-grid">
+
+            <!-- WASH CLUB -->
+            <article class="membership-card">
+                <div class="membership-top">
+                    <h3>Wash Club</h3>
+                    <span class="membership-price">£29.99<span>/mo</span></span>
+                </div>
+                <p class="membership-tagline">4 Washes per month</p>
+                <ul class="membership-features">
+                    <li>Any Wash &amp; Dry service</li>
+                    <li>One vehicle per membership</li>
+                    <li>Works out around £7.50 per wash</li>
+                    <li>No unlimited usage</li>
+                </ul>
+                <a href="#contact" class="membership-btn">Join Wash Club</a>
+            </article>
+
+            <!-- WASH CLUB PLUS (Most Popular) -->
+            <article class="membership-card popular">
+                <span class="membership-badge">⭐ MOST POPULAR</span>
+                <div class="membership-top">
+                    <h3>Wash Club Plus</h3>
+                    <span class="membership-price">£39.99<span>/mo</span></span>
+                </div>
+                <p class="membership-tagline">Unlimited Wash &amp; Dry</p>
+                <ul class="membership-features">
+                    <li>Unlimited Wash &amp; Dry</li>
+                    <li>Wheel clean</li>
+                    <li>Tyre shine</li>
+                    <li>Wax dry</li>
+                    <li>Hand finish</li>
+                    <li>One vehicle per membership</li>
+                    <li>Priority member queue (where available)</li>
+                </ul>
+                <a href="#contact" class="membership-btn">Join Plus</a>
+            </article>
+
+            <!-- VALET CLUB -->
+            <article class="membership-card">
+                <div class="membership-top">
+                    <h3>Valet Club</h3>
+                    <span class="membership-price">£59.99<span>/mo</span></span>
+                </div>
+                <p class="membership-tagline">4 Mini Valets per month</p>
+                <ul class="membership-features">
+                    <li>Hand wash</li>
+                    <li>Wheels</li>
+                    <li>Interior vacuum</li>
+                    <li>Windows inside &amp; out</li>
+                    <li>Dashboard &amp; door shuts</li>
+                    <li>Air fresh &amp; hand finish</li>
+                </ul>
+                <a href="#contact" class="membership-btn">Join Valet Club</a>
+            </article>
+
+            <!-- GOLD CLUB -->
+            <article class="membership-card">
+                <div class="membership-top">
+                    <h3>Gold Club</h3>
+                    <span class="membership-price">£89.99<span>/mo</span></span>
+                </div>
+                <p class="membership-tagline">2 Gold Valets + 4 Wash &amp; Dry</p>
+                <ul class="membership-features">
+                    <li>2 full Gold Valets per month</li>
+                    <li>4 Wash &amp; Dry included</li>
+                    <li>For owners who really care about their car</li>
+                    <li>One vehicle per membership</li>
+                </ul>
+                <a href="#contact" class="membership-btn">Join Gold Club</a>
+            </article>
+
+        </div>
+
+        <p class="membership-note">
+            All memberships are for one vehicle only and cannot be transferred.
+            Unlimited plans are subject to fair use — one wash per day.
+        </p>
+
+    </section>
 
     <section class="hours-section" id="locations">
         <div>
